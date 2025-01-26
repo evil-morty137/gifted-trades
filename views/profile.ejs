@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - GiftedTrades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+HR+Lijeva:wght@100..400&family=Signika+Negative:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<style>
+    h1,
+    p,
+    a,
+    span {
+        font-family: "Signika Negative", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 14px;
+        color: gray;
+    }
+</style>
+
+
+<body class="bg-gray-900 h-screen flex items-center justify-center">
+    <%- include('partials/nav-2') %>
+        <!-- Profile Container -->
+        <div class="p-8 max-w-4xl w-full text-center">
+            <!-- Avatar and Name -->
+            <div class="mb-6">
+                <img src="https://via.placeholder.com/100" alt="Avatar"
+                    class="w-24 h-24 rounded-full mx-auto shadow-md">
+                <h1 class="mt-4 text-2xl font-semibold text-gray-200"><%= user.firstname %> <%= user.lastname %></h1>
+            </div>
+
+            <!-- Logout -->
+            <div class="mb-6">
+                <button class="text-red-500 hover:underline">
+                    <span class="material-icons align-middle">logout</span> Logout
+                </button>
+            </div>
+
+            <!-- Menu Buttons -->
+            <div class="grid grid-cols-3 gap-4">
+                <button class="w-full py-7 bg-black rounded-lg shadow-sm hover:bg-gray-200" style="color: #57B6AD;">
+                    <span class="material-icons align-middle mr-2 bg-blue-300 text-white p-3 rounded-lg">lock</span>
+                    Update Password
+                </button>
+                <button class="w-full py-7 bg-black rounded-lg shadow-sm hover:bg-gray-200" style="color: #57B6AD;">
+                    <span class="material-icons align-middle mr-2 bg-green-300 text-white p-3 rounded-lg">mail</span>
+                    Update Email Address
+                </button>
+                <button class="w-full py-7 bg-black rounded-lg shadow-sm hover:bg-gray-200" style="color: #57B6AD;">
+                    <span
+                        class="material-icons align-middle mr-2 bg-purple-300 text-white p-3 rounded-lg">notifications</span>
+                    Notifications (0)
+                </button>
+                <button class="w-full py-7 bg-black rounded-lg shadow-sm hover:bg-gray-200" style="color: #57B6AD;">
+                    <span class="material-icons align-middle mr-2 bg-red-800 text-white p-3 rounded-lg">support</span>
+                    Get Support
+                </button>
+                <button class="w-full py-7 bg-black rounded-lg shadow-sm hover:bg-gray-200" style="color: #57B6AD;">
+                    <span
+                        class="material-icons align-middle mr-2 bg-green-300 text-white p-3 rounded-lg">notifications</span>
+                    Notifications
+                </button>
+                <button class="w-full py-7 bg-black rounded-lg shadow-sm hover:bg-gray-200" style="color: #57B6AD;">
+                    <span class="material-icons align-middle mr-2 bg-red-300 text-white p-3 rounded-lg">image</span>
+                    Upload Profile
+                    Photo
+                </button>
+            </div>
+        </div>
+        <footer class="bg-gray-900 p-5 fixed bottom-0 w-full">
+            <div class="container mx-auto flex justify-around text-white">
+                <!-- Profile -->
+                <a href="/profile?userId=<%= user._id %>" class="flex flex-col items-center">
+                    <span class="material-icons" style="color: #57B6AD;">person</span>
+                    <span class="mt-1" style="color: #57B6AD;">Profile</span>
+                </a>
+
+                <!-- Dashboard -->
+                <a href="/dashboard?userId=<%= user._id %>" class="flex flex-col items-center">
+                    <span class="material-icons">dashboard</span>
+                    <span class="mt-1">Dashboard</span>
+                </a>
+
+                <!-- Settings -->
+                <a href="/settings" class="flex flex-col items-center">
+                    <span class="material-icons">settings</span>
+                    <span class="mt-1">Settings</span>
+                </a>
+            </div>
+        </footer>
+
+</body>
+
+</html>

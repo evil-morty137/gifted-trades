@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fund Account - GiftedTrades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+HR+Lijeva:wght@100..400&family=Signika+Negative:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<style>
+    h1,
+    p,
+    a,
+    label {
+        font-family: "Signika Negative", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 16px;
+        color: black;
+    }
+</style>
+
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <%- include('partials/nav-2') %>
+
+        <!-- Main Content -->
+        <div class="container mx-auto mt-24 p-8">
+            <h1 class="text-xl  text-center mb-1">FUND TRADING BALANCE DEPOSIT</h1>
+            <h2 class=" text-center mb-4"><a href="" class="text-3xl font-medium">$ 100.00</a>
+            </h2>
+            <!-- Fund Account Form -->
+            <form id="fundForm" class="bg-white shadow-lg rounded-lg p-8 max-w-md mx-auto">
+                <!-- <div class="mb-4 mt-6">
+                    <label for="amount" class="block font-bold mb-2">Amount</label>
+                    <input type="number" id="amount" name="amount" placeholder="$ 0.00"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+                    <p id="error-message" class="text-red-500 text-sm mt-2 hidden">Amount must be at least $100.</p>
+                </div> -->
+                <div class="mb-4">
+                    <label for="account" class="block font-bold mb-2">SELECT PAYMENT METHOD</label>
+                    <select id="account" name="account"
+                        class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+                        <option value="">Send Supported Crypto Currency</option>
+                        <option value="option1">Tether (USDTErc20)</option>
+                        <option value="option1">Tether (USDTTRC20)</option>
+                        <option value="option1">Bitcoin (BTC)</option>
+                        <option value="option1">Ethereum (ETH)</option>
+
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <!-- Proceed Button -->
+                <div class="mt-8">
+                    <button type="submit" style="background-color: #57B6AD;"
+                        class="w-full text-white px-6 py-2 rounded-md transition-colors duration-300 flex items-center justify-center">
+                        Send
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            class="w-5 h-5 ml-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 2L11 13" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M22 2l-7.5 20.5L11 13 2 9l20-7z" />
+                        </svg>
+                    </button>
+                </div>
+
+
+                <div class="flex justify-between items-center mb-4 mt-8">
+                    <a href="/password" style="color: #57B6AD;" class="mx-auto">BUY CRYPTO</a>
+                </div>
+            </form>
+        </div>
+</body>
+
+</html>

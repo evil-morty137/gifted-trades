@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - GiftedTrades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+HR+Lijeva:wght@100..400&family=Signika+Negative:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<style>
+    h1,
+    p,
+    a,
+    label {
+        font-family: "Signika Negative", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 14px;
+        color: gainsboro;
+    }
+</style>
+
+<body class="bg-gray-900">
+    <!-- Navigation Bar -->
+    <%- include('partials/nav-2') %>
+
+        <!-- Main Content -->
+        <div class="container mx-auto mt-24 mb-4 p-8 bg-black shadow-lg rounded-lg max-w-2xl">
+            <h1 class="text-center mb-6">Payment Instructions</h1>
+
+            <p class="text-lg text-center mb-4">SEND <span class="text-green-600">$<%= order.amount %>
+                        .00</span> WORTH OF <%= order.standardToken %>
+            </p>
+
+            <p class="text-center mb-6">TO THE WALLET ADDRESS BELOW OR SCAN THE QR CODE WITH YOUR WALLET APP</p>
+
+            <div class=" p-4 rounded-lg text-center mb-1">
+                <p id="walletAddress" class="font-mono text-lg tracking-widest">
+                    <%= wallet.address %>
+                </p>
+                <p class="text-red-600 mt-2 text-sm">Please send only <%= order.standardToken %> to this address,
+                        sending any other token may result in permanent loss
+                </p>
+            </div>
+
+            <div class="flex items-center justify-center mb-12">
+                <!-- Placeholder for QR Code -->
+                <img src="/<%= wallet.barcode %>" alt="QR Code" class="w-fit h-40">
+            </div>
+
+            <!-- <div class="text-center font-semibold text-red-600 text-2xl mb-6">
+                56:32 <span class="text-sm">Awaiting Payment</span>
+            </div> -->
+
+            <div class="grid grid-cols-1 gap-4 text-center">
+                <button onclick="copyWalletAddress()"
+                    class="text-white py-3 text-sm mx-28 rounded-lg shadow-md transition hover:bg-blue-600"
+                    style="background-color: #57B6AD;">
+                    CLICK TO COPY WALLET ADDRESS
+                </button>
+                <button onclick="processPayment()" class="text-white py-1 text-sm mx-40 rounded-lg shadow-md transition hover:shadow-lg"
+                style="color: #57B6AD; border: 1px solid #57B6AD;">
+                    I have made the Payment.
+                </button>
+            </div>
+        </div>
+
+        <!-- Popup Notification -->
+        <div id="copyPopup" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+            <div class="bg-green-500 text-white text-md py-2 px-2 rounded-lg shadow-lg">
+                Wallet address copied to clipboard!
+            </div>
+        </div>
+        <script>
+            function processPayment() {
+                alert("Your payment is being processed! Kindly check back in a jiffy.");
+            }
+        </script>
+        <script>
+            function copyWalletAddress() {
+                const walletAddressElement = document.getElementById('walletAddress');
+
+                // Create a temporary textarea element to copy the text
+                const tempTextarea = document.createElement('textarea');
+                tempTextarea.value = walletAddressElement.innerText;
+
+                document.body.appendChild(tempTextarea);
+                tempTextarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempTextarea);
+
+                // Show the popup
+                const copyPopup = document.getElementById('copyPopup');
+                copyPopup.classList.remove('hidden');
+                copyPopup.classList.add('flex');
+
+                // Hide the popup after 2 seconds
+                setTimeout(() => {
+                    copyPopup.classList.add('hidden');
+                    copyPopup.classList.remove('flex');
+                }, 2000);
+            }
+        </script>
+</body>
+
+</html>

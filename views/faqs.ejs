@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - GiftedTrades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+HR+Lijeva:wght@100..400&family=Signika+Negative:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<style>
+    h1,
+    p,
+    label {
+        font-family: "Signika Negative", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 12px;
+        color: gray;
+    }
+
+    .faq-answer {
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+        overflow: hidden;
+    }
+
+    .faq-answer.open {
+        max-height: 1000px;
+        /* Adjust based on content size */
+        opacity: 1;
+    }
+</style>
+
+<body class="bg-gray-900">
+
+    <!-- Navigation Bar -->
+    <%- include('partials/nav') %>
+
+        <!-- Main Content -->
+        <section class="container mx-auto mt-16 px-4">
+            <h2 class="text-3xl font-bold  text-gray-300 text-center mb-8">Frequently Asked Questions</h2>
+
+            <!-- FAQs Card -->
+            <div class="p-8">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <!-- Left Column -->
+                    <div class="w-full md:w-1/2 bg-black shadow-xl p-4">
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl text-gray-300 font-semibold">What are the fees?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-300 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-200">
+                                Every investor is to pay a 20% withdrawal fee to complete withdrawal process and each
+                                trader
+                                gets a set percentage of the profit they make.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl text-gray-300 font-semibold">How does copy trading work?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-300 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-200">
+                                Here is how the copier works: You, as an investor, simply select an expert or experts
+                                that
+                                you want to copy trades from. Once you are signed up, this is the only action needed on
+                                your
+                                part. Once you’ve taken care of the above, you are all set. There are no codes that you
+                                need
+                                to run or signals for you to manually input. Our software will handle the trade copying
+                                automatically on your behalf. We monitor your experts trading activity and as soon as
+                                there
+                                is a trade, we calculate all the necessary parameters and execute the trade. The only
+                                thing
+                                you have to make sure of is that you have enough available base currency that your
+                                expert
+                                trades with, in your trading account. How much is enough? First, you must meet the
+                                exchanges
+                                minimum order amount (let’s say about $10 per trade to be safe). That means that if your
+                                expert executes a 5% order, you must have at least $300 in your account total value (at
+                                100%
+                                expert allocation as an example). This also means that you need to have at least 10% or
+                                higher in available base currency to avoid missed trades. When the expert exits a
+                                position,
+                                you too will exit it. Automatically. You can also change allocation at any time.
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl text-gray-300 font-semibold">Who are the trading experts?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-300 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-200">
+                                We carefully select expert applicants. We get to know them as a trader and examine their
+                                trading performance over a period of time. We also tend to look for expert who already
+                                have
+                                a following to further confirm their competence (social proof). You can also read about
+                                every expert on their individual performance pages.
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl text-gray-300 font-semibold">Do I Need to Install Any Trading Software?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-300 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-200">
+                                You can trade on our online platform in the web version right after you create an
+                                account.
+                                There is no need to install new software.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl text-gray-300 font-semibold">What is the recommended amount to start with?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-300 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-200">
+                                We suggest to have around $3000-$5000 in your account in BTC value due to exchanges
+                                minimum
+                                order requirements and so that you can at least cover the subscription cost every month.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="w-full md:w-1/2 bg-black shadow-xl p-4">
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl text-gray-300 font-semibold">Are you mining for yourself?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-300 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-200">
+                                Besides the fact that we ourselves mine with the very same hardware that we offer to our
+                                clients, our capital is limited. We believe that Bitcoin and Altcoin mining is one of
+                                the
+                                best ways to receive Cryptocurrencies, however, we do not want to “put all our eggs in
+                                one
+                                basket”.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl text-gray-300 font-semibold">What is the maintenance fee?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-300 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-200">
+                                Some of our products have a maintenance fee attached. The maintenance fee covers all
+                                costs
+                                related to mining including, inter alia: electricity cost cooling maintenance work
+                                hosting
+                                services The fee is fixed in USD but deducted from the daily mining rewards in the
+                                natively
+                                mined coin on a daily basis.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl text-gray-300 font-semibold">How does Bitcoin mining work?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-300 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-200">
+                                It’s quick and very easy! As soon as we receive your payment your contract will be added
+                                to
+                                your profile, and you can immediately start mining. Depending on the blockchain
+                                algorithm
+                                you select and the associated mining service agreement you enter into, you can either
+                                mine
+                                native cryptocurrencies directly or allocate your hashpower to other cryptocurrencies
+                                (marked with AUTO), and even choose a specific allocation for them. For example: 60%
+                                LTC,
+                                20% BTC and 20% DOGE. The first mining output is released after 48 hours, and then a
+                                daily
+                                mining output will follow.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl text-gray-300 font-semibold">Where is your mining farm located?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-300 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-200">
+                                For security reasons, we do not disclose the exact location of our mining farms. As of
+                                April
+                                2015, we are operating several mining farms that are located in Europe, America and
+                                Asia.
+                                Electricity cost and availability of cooling are important, but not the only criteria.
+                                See
+                                our Datacenters page for more information.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl text-gray-300 font-semibold">Which pools are you using for mining?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-300 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-200">
+                                We do not publish a list of pools we are using. Our main criteria for a good pool are:
+                                reliability, fee structure and reject rate. Going forward we will solo-mine a few coins
+                                (and
+                                pass the fee savings to our users!). Our internal policy is: “be a good crypto citizen”.
+                                This means, that we will at least use two different pools (in some cases we use up to
+                                four)
+                                for each coin. This is to preserve the decentralized nature of the crypto networks! If
+                                we
+                                become aware that a pool is getting close to 50% share, we will switch away from it and
+                                use
+                                a backup instead.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer Section -->
+        <%- include('partials/footer') %>
+
+
+</body>
+<script>
+    document.querySelectorAll('.faq-item').forEach((item) => {
+        const question = item.querySelector('div');
+        const answer = item.querySelector('.faq-answer');
+        const arrow = item.querySelector('svg');
+
+        question.addEventListener('click', () => {
+            const isOpen = answer.classList.contains('open');
+
+            // Close all answers
+            document.querySelectorAll('.faq-answer').forEach((ans) => {
+                ans.classList.remove('open');
+                ans.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+            });
+
+            // If it was not already open, open this one
+            if (!isOpen) {
+                answer.classList.add('open');
+                arrow.classList.add('rotate-180');
+            }
+        });
+    });
+
+</script>
+
+</html>

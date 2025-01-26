@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - GiftedTrades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+HR+Lijeva:wght@100..400&family=Signika+Negative:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<style>
+    h2 {
+        font-family: "Signika Negative", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        color: gainsboro;
+    }
+
+    p,
+    ul>li,
+    a {
+        font-optical-sizing: auto;
+        /* font-weight: 400; */
+        font-style: normal;
+        font-family: "Signika Negative", sans-serif;
+        color: gainsboro;
+    }
+
+    .faq-answer {
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+        overflow: hidden;
+    }
+
+    .faq-answer.open {
+        max-height: 1000px;
+        /* Adjust based on content size */
+        opacity: 1;
+    }
+</style>
+
+<body class="bg-gray-900">
+
+    <%- include('partials/nav') %>
+
+        <div id="sidebar"
+            class="fixed top-0 left-0 w-64 h-full bg-gray-200 text-white transform -translate-x-full transition-transform duration-300 z-40">
+            <div class="flex justify-end p-4">
+                <button id="close-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <ul class="mt-8 space-y-4 px-4">
+                <li><a href="/" class="block py-2 px-4 hover:bg-gray-700 rounded">HOME</a></li>
+                <li><a href="/faqs" class="block py-2 px-4 hover:bg-gray-700 rounded">FAQs</a></li>
+                <li><a href="#" class="block py-2 px-4 hover:bg-gray-700 rounded">ABOUT US</a></li>
+                <li><a href="#" class="block py-2 px-4 hover:bg-gray-700 rounded">CONTACT</a></li>
+            </ul>
+        </div>
+
+        <!-- Two-Column Section -->
+        <section class="container mx-auto pt-14 mt-10 md:flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">
+            <!-- Write-up Section -->
+            <div class="w-full md:w-1/2">
+                <h2 class="text-4xl font-bold mb-4 mx-16">Trading is Better
+                    <br />With <span style="color: #57B6AD;">GiftedTrades</span>
+                </h2>
+                <p class="text-lg mb-4 mx-16">
+                    Raw spreads. Real time trade signals.<br />
+                    Round the clock support
+                </p>
+                <a href="/signup" style="background-color: #57B6AD;"
+                    class="ml-16 inline-block text-white px-6 py-2 rounded-md hover:bg-gray-700 transition-colors duration-300">Create
+                    Account</a>
+                <a href="/login" style="color: #57B6AD; border: 1px solid #57B6AD;"
+                    class="inline-block px-6 py-2 rounded-md transition-colors duration-300">Login
+                    Account</a>
+            </div>
+
+            <!-- Image Section -->
+            <div class="w-full md:w-1/2 hidden md:block">
+                <img src="https://chip-tape.com/assets/images/site/BBLaptopLight.svg" alt="home img"
+                    class="w-full rounded-lg">
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="w-full mt-24 mb-24 pt-16 pb-16 bg-black">
+            <h2 class="text-5xl text-white font-bold text-center mx-2 mt-10">1 Account 200+ Products</h2>
+            <p class="text-center text-white text-2xl mx-4 md:mx-16 mt-4">Diversify your portfolio with access to over 15,000
+                products
+                across 7
+                asset
+                classes. Trade CFDs on Forex, Futures, Indices, Metals, Energies and Shares.</p>
+
+            <!-- Four Cards Section -->
+            <section class="w-full mt-16 px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mx-16 md:mx-24">
+                    <!-- Crypto Card -->
+                    <div style="background-color: #2E8CEC;" class="p-6 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <!-- Crypto SVG Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-full h-full">
+                                <path fill="#F7931A"
+                                    d="M24 0C10.745 0 0 10.745 0 24s10.745 24 24 24 24-10.745 24-24S37.255 0 24 0z" />
+                                <path fill="#FFF"
+                                    d="M29.734 27.036c.406-2.718-1.66-4.185-4.489-5.163l.918-3.678-2.238-.559-.893 3.578c-.588-.146-1.192-.283-1.785-.42l.896-3.594-2.237-.559-.919 3.678c-.484-.11-.96-.219-1.431-.333l-.001-.006-3.086-.769-.594 2.382s1.66.381 1.626.406c.908.227 1.073.828 1.046 1.307l-1.048 4.195c.064.016.147.04.239.077l-.243-.06-1.47 5.898c-.111.275-.393.688-1.03.53.021.03-1.627-.407-1.627-.407l-1.11 2.556 2.91.727c.541.136 1.07.276 1.596.409l-.924 3.707 2.236.559.919-3.679c.608.165 1.2.318 1.782.476l-.917 3.671 2.238.559.924-3.707c3.828.726 6.71.433 7.924-3.027.977-2.79-.049-4.404-2.063-5.451 1.468-.34 2.574-1.307 2.868-3.303zm-5.152 7.215c-.698 2.79-5.42 1.281-6.948.905l1.24-4.976c1.527.381 6.426 1.137 5.708 4.071zm.699-7.314c-.638 2.558-4.57 1.258-5.847.939l1.127-4.522c1.277.319 5.389.914 4.72 3.583z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-xl font-bold mb-2 text-gray-200">Crypto</h2>
+                        <p class="text-gray-200">Dive into the world of digital currencies. Trade popular
+                            cryptocurrencies
+                            like Bitcoin,
+                            Ethereum, and more.</p>
+                    </div>
+
+                    <!-- Copy Trading Card -->
+                    <div style="background-color: #2E8CEC;" class=" p-6 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <!-- Copy Trading SVG Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                class="w-full h-full">
+                                <path
+                                    d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM9.75 18.75h-3v-3h3v3zm7.5 0h-3v-3h3v3zm0-7.5h-3v-3h3v3zm-7.5 0h-3v-3h3v3z"
+                                    fill="#0073b1" />
+                            </svg>
+                        </div>
+                        <h2 class="text-xl font-bold mb-2 text-gray-200">Copy Trading</h2>
+                        <p class="text-gray-200">Replicate the trades of top investors. Let their expertise guide your
+                            trading decisions.
+                        </p>
+                    </div>
+
+                    <!-- Forex Card -->
+                    <div style="background-color: #2E8CEC;" class="p-6 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <!-- Forex SVG Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"
+                                class="w-full h-full">
+                                <path
+                                    d="M32 0c-17.673 0-32 14.327-32 32s14.327 32 32 32 32-14.327 32-32S49.673 0 32 0zm16 32h-7.77a5.008 5.008 0 0 0-1.612-3.194 4.998 4.998 0 0 0-6.618-.211A5.008 5.008 0 0 0 24.77 32H16v-8h7.77a5.008 5.008 0 0 0 1.612-3.194 4.998 4.998 0 0 0-6.618-.211A5.008 5.008 0 0 0 16 16H8v-8h8v8h7.77a5.008 5.008 0 0 0 3.194-1.612 4.998 4.998 0 0 0 .211-6.618A5.008 5.008 0 0 0 32 0c0 3.866 3.134 7 7 7s7-3.134 7-7 3.134 7 7 7c3.866 0 7 3.134 7 7s-3.134 7-7 7H32a5.008 5.008 0 0 0-1.612 3.194 4.998 4.998 0 0 0 .211 6.618A5.008 5.008 0 0 0 40.23 32H48v8z"
+                                    fill="#1c75bc" />
+                            </svg>
+                        </div>
+                        <h2 class="text-xl font-bold mb-2 text-gray-200">Forex</h2>
+                        <p class="text-gray-200">Engage in the largest financial market in the world. Trade currencies
+                            with
+                            confidence
+                            and strategy.</p>
+                    </div>
+
+                    <!-- Stock Card -->
+                    <div style="background-color: #2E8CEC;" class="p-6 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 mx-auto mb-4">
+                            <!-- Stock SVG Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"
+                                class="w-full h-full">
+                                <path
+                                    d="M32 0C14.327 0 0 14.327 0 32s14.327 32 32 32 32-14.327 32-32S49.673 0 32 0zM48 48H16V16h32v32zm-8-8H24v-8h16v8z"
+                                    fill="#50c878" />
+                            </svg>
+                        </div>
+                        <h2 class="text-xl font-bold mb-2 text-gray-200">Stock</h2>
+                        <p class="text-gray-200">Invest in the stock market. Buy and sell shares of top companies to
+                            grow
+                            your wealth.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Two-Column Section -->
+        <section class="container mx-auto my-14 md:my-28 px-4 md:px-0 flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8">
+
+            <!-- Write-up Section -->
+            <div class="w-full md:w-1/2">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 text-center md:text-left">Lightning speed execution with razor-thin spreads</h2>
+                <ul class="space-y-3">
+                    <small class="text-gray-500 block text-center md:text-left">You get the best trading conditions:</small>
+                    <li class="font-bold flex items-center justify-center md:justify-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9 12l2 2l4-4"></path>
+                        </svg>
+                        Low Latency
+                    </li>
+                    <li class="font-bold flex items-center justify-center md:justify-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9 12l2 2l4-4"></path>
+                        </svg>
+                        Spreads from 0.0 pips
+                    </li>
+                    <li class="font-bold flex items-center justify-center md:justify-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9 12l2 2l4-4"></path>
+                        </svg>
+                        Copy Trading Available
+                    </li>
+                </ul>
+            </div>
+        
+            <!-- Video Section -->
+            <div class="w-full md:w-1/2">
+                <video class="w-full rounded-lg mt-4 md:mt-0" autoplay loop muted playsinline>
+                    <source src="https://cdn.pixabay.com/video/2018/01/09/13757-251859000_large.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+        
+
+        <!-- Two-Column Section -->
+       
+
+        <!-- Two-Column Section -->
+        <section
+            class="w-full bg-black mt-16 flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8 px-8">
+            <!-- Image Section -->
+            <div class="w-full md:w-1/2 flex justify-center">
+                <img src="https://chip-tape.com/assets/images/site/BBHeadset.webp" alt="Placeholder Image"
+                    class="w-3/4 h-auto rounded-lg">
+            </div>
+
+            <!-- Write-up Section -->
+            <div class="w-full md:w-1/2">
+                <h2 class="text-5xl font-bold mb-4">Unrivaled 24/7 Customer Service</h2>
+                <p class="">Got an issue? We respond under 5 minutes
+                    on<br /> live chat and solve the problem for you.</p><br />
+                <ul>
+                    <li class="font-bold"> <span class="text-blue-500 text-xl">></span> Contact us anytime, from
+                        anywhere
+                    </li>
+                    <li class="font-bold"><span class="text-blue-500 text-xl">></span> One-to-one trading support for
+                        all
+                        clients</li>
+                </ul>
+            </div>
+        </section>
+
+<!-- Team Section -->
+<section class="w-full my-16 p-10 flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-8 px-8">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-semibold text-gray-200 mb-8">Meet Our Team</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Team Member 1 -->
+            <div class="bg-black shadow-md px-4 py-10">
+                <img class="w-24 h-24 rounded-full mx-auto mb-4" src="/james.jpeg" alt="Team Member 1">
+                <h3 class="text-xl font-semibold text-gray-200">Melisa James</h3>
+                <p class="text-gray-300">Account Manager</p>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="bg-black shadow-md px-4 py-10">
+                <img class="w-24 h-24 rounded-full mx-auto mb-4" src="https://media.istockphoto.com/id/1347495868/photo/smiling-african-american-man-wearing-glasses.jpg?s=612x612&w=0&k=20&c=QMCbWu-AOfLDkQMsX-qX2xHFZAL56tx_uVucZ5rBxv8=" alt="Team Member 3">
+                <h3 class="text-xl font-semibold text-gray-200">Emmanuel Davis</h3>
+                <p class="text-gray-300">Analyst</p>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="bg-black shadow-md px-4 py-10">
+                <img class="w-24 h-24 rounded-full mx-auto mb-4" src="/wenika.jpeg" alt="Team Member 2">
+                <h3 class="text-xl font-semibold text-gray-200">Melisa Wenika</h3>
+                <p class="text-gray-300">Mining Operator</p>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="bg-black shadow-md px-4 py-10">
+                <img class="w-24 h-24 rounded-full mx-auto mb-4" src="https://t4.ftcdn.net/jpg/04/02/62/41/360_F_402624137_Yc0kTeIm7mJn9YA67pwIOsiDeAb5D2tb.jpg" alt="Team Member 4">
+                <h3 class="text-xl font-semibold text-gray-200">Sofia Smith</h3>
+                <p class="text-gray-300">Customer Support</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- FAQ Section -->
+        <section class="container mx-auto mt-16 px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+
+            <!-- FAQ Card -->
+            <div class="bg-black p-8 rounded-lg">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <!-- Left Column -->
+                    <div class="w-full md:w-1/2 shadow-xl p-4">
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold text-gray-200">What are the fees?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-200 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-300">
+                                Every investor is to pay a 20% withdrawal fee to complete withdrawal process and each
+                                trader
+                                gets a set percentage of the profit they make.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold text-gray-200">How does copy trading work?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-200 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-300">
+                                Here is how the copier works: You, as an investor, simply select an expert or experts
+                                that
+                                you want to copy trades from. Once you are signed up, this is the only action needed on
+                                your
+                                part. Once you’ve taken care of the above, you are all set. There are no codes that you
+                                need
+                                to run or signals for you to manually input. Our software will handle the trade copying
+                                automatically on your behalf. We monitor your experts trading activity and as soon as
+                                there
+                                is a trade, we calculate all the necessary parameters and execute the trade. The only
+                                thing
+                                you have to make sure of is that you have enough available base currency that your
+                                expert
+                                trades with, in your trading account. How much is enough? First, you must meet the
+                                exchanges
+                                minimum order amount (let’s say about $10 per trade to be safe). That means that if your
+                                expert executes a 5% order, you must have at least $300 in your account total value (at
+                                100%
+                                expert allocation as an example). This also means that you need to have at least 10% or
+                                higher in available base currency to avoid missed trades. When the expert exits a
+                                position,
+                                you too will exit it. Automatically. You can also change allocation at any time.
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold text-gray-200">Who are the trading experts?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-200 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-300">
+                                We carefully select expert applicants. We get to know them as a trader and examine their
+                                trading performance over a period of time. We also tend to look for expert who already
+                                have
+                                a following to further confirm their competence (social proof). You can also read about
+                                every expert on their individual performance pages.
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold text-gray-200">Do I Need to Install Any Trading Software?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-200 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-300">
+                                You can trade on our online platform in the web version right after you create an
+                                account.
+                                There is no need to install new software.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold text-gray-200">What is the recommended amount to start with?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-200 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-300">
+                                We suggest to have around $3000-$5000 in your account in BTC value due to exchanges
+                                minimum
+                                order requirements and so that you can at least cover the subscription cost every month.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="w-full md:w-1/2 shadow-xl p-4">
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold text-gray-200">Are you mining for yourself?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-200 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-300">
+                                Besides the fact that we ourselves mine with the very same hardware that we offer to our
+                                clients, our capital is limited. We believe that Bitcoin and Altcoin mining is one of
+                                the
+                                best ways to receive Cryptocurrencies, however, we do not want to “put all our eggs in
+                                one
+                                basket”.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold text-gray-200">What is the maintenance fee?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-200 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-300">
+                                Some of our products have a maintenance fee attached. The maintenance fee covers all
+                                costs
+                                related to mining including, inter alia: electricity cost cooling maintenance work
+                                hosting
+                                services The fee is fixed in USD but deducted from the daily mining rewards in the
+                                natively
+                                mined coin on a daily basis.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold text-gray-200">How does Bitcoin mining work?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-200 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-300">
+                                It’s quick and very easy! As soon as we receive your payment your contract will be added
+                                to
+                                your profile, and you can immediately start mining. Depending on the blockchain
+                                algorithm
+                                you select and the associated mining service agreement you enter into, you can either
+                                mine
+                                native cryptocurrencies directly or allocate your hashpower to other cryptocurrencies
+                                (marked with AUTO), and even choose a specific allocation for them. For example: 60%
+                                LTC,
+                                20% BTC and 20% DOGE. The first mining output is released after 48 hours, and then a
+                                daily
+                                mining output will follow.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold text-gray-200">Where is your mining farm located?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-200 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-300">
+                                For security reasons, we do not disclose the exact location of our mining farms. As of
+                                April
+                                2015, we are operating several mining farms that are located in Europe, America and
+                                Asia.
+                                Electricity cost and availability of cooling are important, but not the only criteria.
+                                See
+                                our Datacenters page for more information.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold text-gray-200">Which pools are you using for mining?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-200 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-300">
+                                We do not publish a list of pools we are using. Our main criteria for a good pool are:
+                                reliability, fee structure and reject rate. Going forward we will solo-mine a few coins
+                                (and
+                                pass the fee savings to our users!). Our internal policy is: “be a good crypto citizen”.
+                                This means, that we will at least use two different pools (in some cases we use up to
+                                four)
+                                for each coin. This is to preserve the decentralized nature of the crypto networks! If
+                                we
+                                become aware that a pool is getting close to 50% share, we will switch away from it and
+                                use
+                                a backup instead.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="w-full h-full mt-10 bg-gradient-to-r from-blue-500 to-blue-800 py-20">
+            <h2 class="text-6xl md:mx-44 font-bold text-center text-white">Get Started! Sign up and Access the Global
+                Markets
+                in less than 3 minutes</h2>
+
+            <div class="flex justify-center mt-8 space-x-4">
+                <a href="/signup" style="background-color: #57B6AD;"
+                    class="inline-block text-white px-6 py-2 rounded-md hover:bg-gray-700 transition-colors duration-300">Create
+                    Account</a>
+                <a href="/login"
+                    class="border border-green-500 text-white px-6 py-2 rounded-md  transition-colors duration-300">Login
+                    Account</a>
+            </div>
+        </div>
+
+
+
+        <!-- Footer Section -->
+        <%- include('partials/footer') %>
+
+            <script>
+
+
+
+                document.querySelectorAll('.faq-item').forEach((item) => {
+                    const question = item.querySelector('div');
+                    const answer = item.querySelector('.faq-answer');
+                    const arrow = item.querySelector('svg');
+
+                    question.addEventListener('click', () => {
+                        const isOpen = answer.classList.contains('open');
+
+                        // Close all answers
+                        document.querySelectorAll('.faq-answer').forEach((ans) => {
+                            ans.classList.remove('open');
+                            ans.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                        });
+
+                        // If it was not already open, open this one
+                        if (!isOpen) {
+                            answer.classList.add('open');
+                            arrow.classList.add('rotate-180');
+                        }
+                    });
+                });
+
+            </script>
+
+</html>

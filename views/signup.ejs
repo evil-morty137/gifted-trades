@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up - GiftedTrades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+HR+Lijeva:wght@100..400&family=Signika+Negative:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<style>
+    h1,
+    p,
+    a,
+    label {
+        font-family: "Signika Negative", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 12px;
+        color: gray;
+    }
+</style>
+
+<body class="bg-black">
+
+    <!-- Navigation Bar -->
+    <%- include('partials/nav') %>
+
+        <!-- Main Content -->
+        <div class="container mx-auto mt-24 p-8">
+            <% if (message==='PasswordsDoNotMatch' ) { %>
+                <!-- Message Pop-up -->
+                <div id="message"
+                    class="message bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6 max-w-md mx-auto"
+                    role="alert">
+                    <strong class="font-bold">Failed!</strong>
+                    <span class="block sm:inline">Password must match</span>
+                </div>
+                <% } else if (message==='noTC' ) { %>
+                    <!-- Message Pop-up -->
+                    <div id="message"
+                        class="message bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6 max-w-md mx-auto"
+                        role="alert">
+                        <strong class="font-bold">Failed!</strong>
+                        <span class="block sm:inline">You must agree to the Term of Service</span>
+                    </div>
+                    <% } else if (message==='emailExist' ) { %>
+                        <!-- Message Pop-up -->
+                        <div id="message"
+                            class="message bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6 max-w-md mx-auto"
+                            role="alert">
+                            <strong class="font-bold">Failed!</strong>
+                            <span class="block sm:inline">The email you used already has an account. <br /> Kindly login
+                                or forgot password</span>
+                        </div>
+                        <% } %>
+                            <h1 class="text-xl font-bold text-gray-200 text-center mb-12">Create An Account</h1>
+
+                            <form class="bg-gray-900 shadow-lg rounded-lg p-8" action="/signup" method="post">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                    <!-- First Column -->
+                                    <div>
+                                        <div class="mb-4">
+                                            <label for="firstname" class="block font-bold mb-2">First Name</label>
+                                            <input type="text" id="firstname" name="firstname"
+                                                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="lastname" class="block font-bold mb-2">Last Name</label>
+                                            <input type="text" id="lastname" name="lastname"
+                                                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="email" class="block font-bold mb-2">Email</label>
+                                            <input type="email" id="email" name="email"
+                                                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+                                        </div>
+                                    </div>
+                            
+                                    <!-- Second Column -->
+                                    <div>
+                                        <div class="mb-4">
+                                            <label for="password" class="block font-bold mb-2">Password</label>
+                                            <input type="password" id="password" name="password"
+                                                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="cpassword" class="block font-bold mb-2">Confirm Password</label>
+                                            <input type="password" id="cpassword" name="cpassword"
+                                                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="currency" class="block font-bold mb-2">Currency</label>
+                                            <input type="text" id="currency" name="currency"
+                                                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+                                        </div>
+                                    </div>
+                            
+                                    <!-- Third Column -->
+                                    <div>
+                                        <div class="mb-4">
+                                            <label for="phone" class="block font-bold mb-2">Phone</label>
+                                            <input type="tel" id="phone" name="phone"
+                                                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="country" class="block font-bold mb-2">Country</label>
+                                            <input type="text" id="country" name="country"
+                                                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="city" class="block font-bold mb-2">City</label>
+                                            <input type="text" id="city" name="city"
+                                                class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-green-500">
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <!-- Checkbox for Agreement -->
+                                <div class="flex items-center mb-4 mt-4">
+                                    <input id="tc" name="tc" type="checkbox"
+                                        class="h-4 w-4 text-blue-500 focus:ring-blue-400 border-gray-300 rounded">
+                                    <label for="tc" class="ml-2 block text-md font-bold text-green-500">
+                                        I declare that the information provided is correct and accept all 
+                                        <a href="#" class="hover:underline text-green-500 font-bold">Terms of Service</a>.
+                                    </label>
+                                </div>
+                            
+                                <!-- Submit Button -->
+                                <div class="mt-8">
+                                    <button type="submit" class="w-full bg-green-500 text-white px-6 py-2 rounded-md transition-colors duration-300">
+                                        Sign Up
+                                    </button>
+                                </div>
+                            </form>
+                            
+        </div>
+        <p class="text-center text-gray-200 text-lg ">Already have an account? <a href="/login" class="text-lg"
+                style="color: #57B6AD;">Login</a></p>
+        <!-- Footer -->
+        <!-- Footer Section -->
+        <%- include('partials/footer') %>
+
+
+</body>
+
+</html>

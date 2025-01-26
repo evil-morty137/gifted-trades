@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Traders - GiftedTrades</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script>
+        // JavaScript for the automated search filter
+        function filterTraders() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.getElementsByClassName('trader-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const name = cards[i].getElementsByClassName('trader-name')[0].innerText.toLowerCase();
+                if (name.includes(input)) {
+                    cards[i].style.display = "block";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 p-6">
+
+    <!-- Navigation Bar -->
+    <%- include('partials/nav-2') %>
+        <!-- Search Input -->
+        <div class="container mx-auto mt-14 mb-6">
+            <input type="text" id="searchInput" onkeyup="filterTraders()" placeholder="Search traders..."
+                class="w-full p-3 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <!-- Traders List -->
+        <div class="container mx-auto space-y-6">
+            <!-- Trader Card -->
+            <div class="bg-white p-6 rounded-lg shadow-sm hover:bg-gray-300 flex items-center trader-card">
+                <!-- Trader Image -->
+                <img src="https://chip-tape.com/uploads/images/trader-29-1723972126.png" alt="Trader Image"
+                    class="w-20 h-20 rounded-full mr-6">
+
+                <!-- Trader Details -->
+                <div class="flex-1">
+                    <h2 class="text-xl font-semibold text-gray-800 trader-name">Crypto Bully</h2>
+                    <div class="mt-2 flex space-x-8">
+                        <p><strong>Return Rate:</strong> 12.5%</p>
+                        <p><strong>Followers:</strong> 1,250</p>
+                        <p><strong>Profit Share:</strong> 10%</p>
+                    </div>
+                </div>
+
+                <!-- Copy Button -->
+                <button class="text-white py-2 px-4 rounded-lg shadow-md flex items-center"
+                    style="background-color: #57B6AD;">
+                    <span class="material-icons text-base mr-1"></span> Copy
+                </button>
+            </div>
+
+            <!-- Another Trader Card -->
+            <div class="bg-white p-6 rounded-lg shadow-sm hover:bg-gray-300 flex items-center trader-card">
+                <!-- Trader Image -->
+                <img src="https://chip-tape.com/uploads/images/trader-28-1723804680.png" alt="Trader Image"
+                    class="w-20 h-20 rounded-full mr-6">
+
+                <!-- Trader Details -->
+                <div class="flex-1">
+                    <h2 class="text-xl font-semibold text-gray-800 trader-name">Josh The Trader</h2>
+                    <div class="mt-2 flex space-x-8">
+                        <p><strong>Return Rate:</strong> 12.5%</p>
+                        <p><strong>Followers:</strong> 1,250</p>
+                        <p><strong>Profit Share:</strong> 10%</p>
+                    </div>
+                </div>
+
+                <!-- Copy Button -->
+                <button class=" text-white py-2 px-4 rounded-lg shadow-md flex items-center"
+                    style="background-color: #57B6AD;">
+                    <span class="material-icons text-base mr-1"></span> Copy
+                </button>
+            </div>
+
+            <!-- Another Trader Card -->
+            <div class="bg-white p-6 rounded-lg shadow-sm hover:bg-gray-300 flex items-center trader-card">
+                <!-- Trader Image -->
+                <img src="https://chip-tape.com/uploads/images/trader-27-1723732393.png" alt="Trader Image"
+                    class="w-20 h-20 rounded-full mr-6">
+
+                <!-- Trader Details -->
+                <div class="flex-1">
+                    <h2 class="text-xl font-semibold text-gray-800 trader-name">Xavier</h2>
+                    <div class="mt-2 flex space-x-8">
+                        <p><strong>Return Rate:</strong> 12.5%</p>
+                        <p><strong>Followers:</strong> 1,250</p>
+                        <p><strong>Profit Share:</strong> 10%</p>
+                    </div>
+                </div>
+
+                <!-- Copy Button -->
+                <button class="text-white py-2 px-4 rounded-lg shadow-md flex items-center"
+                    style="background-color: #57B6AD;">
+                    <span class="material-icons text-base mr-1"></span> Copy
+                </button>
+            </div>
+
+            <!-- Another Trader Card -->
+            <div class="bg-white p-6 rounded-lg shadow-sm hover:bg-gray-300 flex items-center trader-card">
+                <!-- Trader Image -->
+                <img src="https://chip-tape.com/uploads/images/trader-26-1723485733.png" alt="Trader Image"
+                    class="w-20 h-20 rounded-full mr-6">
+
+                <!-- Trader Details -->
+                <div class="flex-1">
+                    <h2 class="text-xl font-semibold text-gray-800 trader-name">Jesca Greece</h2>
+                    <div class="mt-2 flex space-x-8">
+                        <p><strong>Return Rate:</strong> 12.5%</p>
+                        <p><strong>Followers:</strong> 1,250</p>
+                        <p><strong>Profit Share:</strong> 10%</p>
+                    </div>
+                </div>
+
+                <!-- Copy Button -->
+                <button class="text-white py-2 px-4 rounded-lg shadow-md flex items-center"
+                    style="background-color: #57B6AD;">
+                    <span class="material-icons text-base mr-1"></span> Copy
+                </button>
+            </div>
+
+            <!-- Another Trader Card -->
+            <div class="bg-white p-6 rounded-lg shadow-sm hover:bg-gray-300 flex items-center trader-card">
+                <!-- Trader Image -->
+                <img src="https://chip-tape.com/uploads/images/trader-24-1723181407.png" alt="Trader Image"
+                    class="w-20 h-20 rounded-full mr-6">
+
+                <!-- Trader Details -->
+                <div class="flex-1">
+                    <h2 class="text-xl font-semibold text-gray-800 trader-name">Watcher Guru</h2>
+                    <div class="mt-2 flex space-x-8">
+                        <p><strong>Return Rate:</strong> 12.5%</p>
+                        <p><strong>Followers:</strong> 1,250</p>
+                        <p><strong>Profit Share:</strong> 10%</p>
+                    </div>
+                </div>
+
+                <!-- Copy Button -->
+                <button class="text-white py-2 px-4 rounded-lg shadow-md flex items-center"
+                    style="background-color: #57B6AD;">
+                    <span class="material-icons text-base mr-1"></span> Copy
+                </button>
+            </div>
+
+            <!-- Another Trader Card -->
+            <div class="bg-white p-6 rounded-lg shadow-sm hover:bg-gray-300 flex items-center trader-card">
+                <!-- Trader Image -->
+                <img src="https://chip-tape.com/uploads/images/trader-23-1723023498.png" alt="Trader Image"
+                    class="w-20 h-20 rounded-full mr-6">
+
+                <!-- Trader Details -->
+                <div class="flex-1">
+                    <h2 class="text-xl font-semibold text-gray-800 trader-name">Arigator Investor</h2>
+                    <div class="mt-2 flex space-x-8">
+                        <p><strong>Return Rate:</strong> 12.5%</p>
+                        <p><strong>Followers:</strong> 1,250</p>
+                        <p><strong>Profit Share:</strong> 10%</p>
+                    </div>
+                </div>
+
+                <!-- Copy Button -->
+                <button class="text-white py-2 px-4 rounded-lg shadow-md flex items-center"
+                    style="background-color: #57B6AD;">
+                    <span class="material-icons text-base mr-1"></span> Copy
+                </button>
+            </div>
+
+            <!-- Another Trader Card -->
+            <div class="bg-white p-6 rounded-lg shadow-sm hover:bg-gray-300 flex items-center trader-card">
+                <!-- Trader Image -->
+                <img src="https://chip-tape.com/uploads/images/trader-22-1723015853.png" alt="Trader Image"
+                    class="w-20 h-20 rounded-full mr-6">
+
+                <!-- Trader Details -->
+                <div class="flex-1">
+                    <h2 class="text-xl font-semibold text-gray-800 trader-name">Clinton Egon</h2>
+                    <div class="mt-2 flex space-x-8">
+                        <p><strong>Return Rate:</strong> 12.5%</p>
+                        <p><strong>Followers:</strong> 1,250</p>
+                        <p><strong>Profit Share:</strong> 10%</p>
+                    </div>
+                </div>
+
+                <!-- Copy Button -->
+                <button class=" text-white py-2 px-4 rounded-lg shadow-md flex items-center">
+                    <span class="material-icons text-base mr-1" style="background-color: #57B6AD;"></span> Copy
+                </button>
+            </div>
+
+            <!-- Another Trader Card -->
+            <div class="bg-white p-6 rounded-lg shadow-sm hover:bg-gray-300 flex items-center trader-card">
+                <!-- Trader Image -->
+                <img src="https://chip-tape.com/uploads/images/trader-17-1721425792.png" alt="Trader Image"
+                    class="w-20 h-20 rounded-full mr-6">
+
+                <!-- Trader Details -->
+                <div class="flex-1">
+                    <h2 class="text-xl font-semibold text-gray-800 trader-name">Crypto Cop</h2>
+                    <div class="mt-2 flex space-x-8">
+                        <p><strong>Return Rate:</strong> 12.5%</p>
+                        <p><strong>Followers:</strong> 1,250</p>
+                        <p><strong>Profit Share:</strong> 10%</p>
+                    </div>
+                </div>
+
+                <!-- Copy Button -->
+                <button class="text-white py-2 px-4 rounded-lg shadow-md flex items-center"
+                    style="background-color: #57B6AD;">
+                    <span class="material-icons text-base mr-1"></span> Copy
+                </button>
+            </div>
+
+            <!-- Add more trader cards as needed -->
+        </div>
+</body>
+
+</html>

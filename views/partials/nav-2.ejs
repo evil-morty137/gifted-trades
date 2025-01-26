@@ -1,0 +1,67 @@
+<!-- Navigation Bar -->
+<nav class="fixed top-0 left-0 w-full bg-gray-900 text-black py-4 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo and Hamburger Wrapper -->
+        <div class="flex items-center space-x-4">
+            <!-- Hamburger Menu -->
+            <button id="menu-btn" class="text-gray-200 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+            <!-- Logo -->
+            <a href="/" class="text-lg font-bold">GiftedTrades</a>
+
+        </div>
+        <!-- Desktop Menu -->
+        <!-- <ul class="hidden md:flex space-x-4">
+            <li><a href="/" class="hover:text-gray-800">HOME</a></li>
+            <li><a href="/faqs" class="hover:text-gray-800">FAQs</a></li>
+            <li><a href="/about-us" class="hover:text-gray-800">ABOUT US</a></li>
+            <li><a href="/contact" class="hover:text-gray-800">CONTACT</a></li>
+        </ul> -->
+    </div>
+
+    <script>
+        // JavaScript to handle the sidebar toggle
+        document.getElementById('menu-btn').addEventListener('click', function () {
+            document.getElementById('sidebar').classList.toggle('-translate-x-full');
+        });
+
+        document.getElementById('close-btn').addEventListener('click', function () {
+            document.getElementById('sidebar').classList.add('-translate-x-full');
+        });
+    </script>
+</nav>
+<!-- Sidebar -->
+<div id="sidebar"
+    class="fixed top-0 left-0 w-64 h-full bg-white text-white transform -translate-x-full transition-transform duration-300 z-40">
+    <div class="flex justify-end p-4">
+        <button id="close-btn" class="text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                </path>
+            </svg>
+        </button>
+    </div>
+    <ul class="mt-8 space-y-1 px-4">
+        <li><a href="/" class="text-gray-800 text-lg block py-2 px-4 hover:bg-gray-200 rounded">Home</a></li>
+        <li><a href="faqs" class="text-gray-800 text-lg block py-2 px-4 hover:bg-gray-200 rounded">FAQs</a></li>
+        <li><a href="about-us" class="text-gray-800 text-lg block py-2 px-4 hover:bg-gray-200 rounded">About us</a></li>
+        <li><a href="contact" class="text-gray-800 text-lg block py-2 px-4 hover:bg-gray-200 rounded">Contact</a></li>
+        <li><a href="cookie-policy" class="text-gray-800 text-lg block py-2 px-4 hover:bg-gray-200 rounded">Cookie
+                Policy</a></li>
+        <li><a href="privacy-policy" class="text-gray-800 text-lg block py-2 px-4 hover:bg-gray-200 rounded">Privacy
+                Policy</a></li>
+        <li><a href="tc" class="text-gray-800 text-lg block py-2 px-4 hover:bg-gray-200 rounded">Terms & Conditions</a>
+        </li>
+        <li><a href="signup" class="text-gray-800 text-lg block py-2 px-4 hover:bg-gray-200 rounded">Logout</a></li>
+
+    </ul>
+</div>
+
+
+<!-- Sidebar -->

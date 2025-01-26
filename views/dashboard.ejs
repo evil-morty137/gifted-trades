@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | GiftedTrades</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+HR+Lijeva:wght@100..400&family=Signika+Negative:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<style>
+    h1,
+    p,
+    a,
+    label {
+        font-family: "Signika Negative", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 12px;
+        color: gray;
+    }
+</style>
+
+<body class="bg-gray-900">
+    <%- include('partials/nav-2') %>
+
+        <!-- Main Dashboard Container -->
+        <div class="container mx-auto mt-16 p-8">
+
+            <!-- Dashboard Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Sidebar Card (30%) -->
+                <div class="md:col-span-1 p-6 rounded-lg">
+                    <!-- Metrics Section -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Deposit Balance and Profit Balance -->
+                        <div class="flex flex-col items-center bg-gray-100 p-4 rounded-lg shadow-sm">
+                            <p class="text-2xl font-bold text-blue-900">$<%= trx.deposit %>.00</p>
+                            <p class="mb-2">DEPOSIT BALANCE
+                            </p>
+                        </div>
+                        <div class="flex flex-col items-center bg-gray-100 p-4 rounded-lg shadow-sm">
+                            <p class="text-2xl font-bold text-blue-900">$<%= trx.profit %>.00</p>
+                            <p class="mb-2">PROFIT BALANCE</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <!-- Net Profit / Loss and Today's Profit / Loss -->
+                        <div class="flex flex-col items-center bg-gray-100 p-4 rounded-lg shadow-sm">
+                            <p class="mb-2">NET PROFIT / LOSS</p>
+                            <p class="text-2xl font-bold text-blue-900">$<%= trx.netProfit %>.00</p>
+                        </div>
+                        <div class="flex flex-col items-center bg-gray-100 p-4 rounded-lg shadow-sm">
+                            <p class="mb-2">TODAY'S PROFIT / LOSS</p>
+                            <p class="text-2xl font-bold text-blue-900">$<%= trx.todaysProfit %>.00</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <!-- Signal Strength -->
+                        <div class="bg-black p-4 rounded-lg shadow-sm text-center">
+                            <p class="text-lg font-semibold mb-2">SIGNAL STRENGTH</p>
+                            <div class="relative pt-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span
+                                        class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-gray-600 bg-yellow-200 uppercase">Weak</span>
+                                    <span
+                                        class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-teal-600 bg-teal-200 uppercase">Strong</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <!-- Progress Bar -->
+                                    <div class="relative flex-grow bg-gray-200 rounded-full h-4">
+                                        <div class="absolute top-0 left-0 bg-teal-500 h-full rounded-full"
+                                            style="width: 75%;"></div>
+                                    </div>
+                                    <!-- Progress Percentage -->
+                                    <span class="ml-3 text-gray-200 text-lg font-semibold">75%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Four Clickable Boxes Below the Card -->
+                    <div class="grid grid-cols-2 gap-4 mt-6">
+                        <a href="fund/step1?userId=<%= user._id %>"
+                            class="bg-green-500 text-white p-4 shadow-lg text-center hover:bg-green-600 transition">
+                            <div>FUND ACCOUNT</div>
+                        </a>
+                        <a href="traders"
+                            class="bg-indigo-500 text-white p-4 shadow-lg text-center hover:bg-lime-600 transition">
+                            <div>COPY EXPERTS</div>
+                        </a>
+                        <a href="/withdraw?userId=<%= user._id %>"
+                            class="bg-blue-500 text-white p-4 shadow-lg text-center hover:bg-cyan-600 transition">
+                            <div>WITHDRAW</div>
+                        </a>
+                      <!--   <a href="#"
+                            class="bg-indigo-500 text-white p-4 shadow-lg text-center hover:bg-indigo-600 transition">
+                            <div>TRADING ROOM</div>
+                        </a> -->
+                    </div>
+                </div>
+
+                <!-- Main Content Card (70%) -->
+                <div class="md:col-span-2 bg-black p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-6 " style="color: #57B6AD;">Trades Overview</h2>
+
+                    <!-- Tab Navigation -->
+                    <div class="flex border-b border-gray-300 mb-4">
+                        <button id="openTradesTab" style="" class="md:w-1/2 tab-button px-4 py-2 font-semibold text-white">
+                            <span class="material-icons">hourglass_full</span> Open Trades
+                        </button>
+
+                        <button id="closedTradesTab"
+                            class="md:w-1/2 tab-button px-4 py-2 text-white hover:text-[#57B6AD]">
+                            <span class="material-icons">hourglass_top</span> Closed Trades
+                        </button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div id="tabsContent">
+                        <!-- Open Trades Content -->
+                        <div id="openTradesContent" class="tab-content hidden">
+                            <table class="min-w-full bg-gray-100 border border-gray-300 rounded-lg">
+                                <thead class="bg-gray-200 text-gray-600 uppercase text-sm">
+                                    <tr>
+                                        <th class="py-3 px-4 border-b">Trade ID</th>
+                                        <th class="py-3 px-4 border-b">Symbol</th>
+                                        <th class="py-3 px-4 border-b">Entry Price</th>
+                                        <th class="py-3 px-4 border-b">Quantity</th>
+                                        <th class="py-3 px-4 border-b">Open Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- <tr>
+                                        <td class="py-3 px-4 border-b">#12345</td>
+                                        <td class="py-3 px-4 border-b">AAPL</td>
+                                        <td class="py-3 px-4 border-b">$150.00</td>
+                                        <td class="py-3 px-4 border-b">10</td>
+                                        <td class="py-3 px-4 border-b">2024-08-18 10:30 AM</td>
+                                    </tr> -->
+                                    <!-- More rows as needed -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Closed Trades Content -->
+                        <div id="closedTradesContent" class="tab-content hidden">
+                            <table class="min-w-full bg-gray-100 border border-gray-300 rounded-lg">
+                                <thead class="bg-gray-200 text-gray-600 uppercase text-sm">
+                                    <tr>
+                                        <th class="py-3 px-4 border-b">Trade ID</th>
+                                        <th class="py-3 px-4 border-b">Symbol</th>
+                                        <th class="py-3 px-4 border-b">Entry Price</th>
+                                        <th class="py-3 px-4 border-b">Exit Price</th>
+                                        <th class="py-3 px-4 border-b">Quantity</th>
+                                        <th class="py-3 px-4 border-b">Profit/Loss</th>
+                                        <th class="py-3 px-4 border-b">Close Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- <tr>
+                                        <td class="py-3 px-4 border-b">#54321</td>
+                                        <td class="py-3 px-4 border-b">GOOGL</td>
+                                        <td class="py-3 px-4 border-b">$2800.00</td>
+                                        <td class="py-3 px-4 border-b">$2850.00</td>
+                                        <td class="py-3 px-4 border-b">5</td>
+                                        <td class="py-3 px-4 border-b text-green-600 font-semibold">+$250.00</td>
+                                        <td class="py-3 px-4 border-b">2024-08-18 11:00 AM</td>
+                                    </tr> -->
+                                    <!-- More rows as needed -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-gray-900 p-5 fixed bottom-0 w-full">
+            <div class="container mx-auto flex justify-around text-white">
+                <!-- Profile -->
+                <a href="/profile?userId=<%= user._id %>" class="flex flex-col items-center">
+                    <span class="material-icons">person</span>
+                    <span class="mt-1">Profile</span>
+                </a>
+
+                <!-- Dashboard -->
+                <a href="/dashboard?userId=<%= user._id %>" class="flex flex-col items-center">
+                    <span class="material-icons" style="color: #57B6AD;">dashboard</span>
+                    <span class="mt-1" style="color: #57B6AD;">Dashboard</span>
+                </a>
+
+                <!-- Settings -->
+                <a href="/settings" class="flex flex-col items-center">
+                    <span class="material-icons">settings</span>
+                    <span class="mt-1">Settings</span>
+                </a>
+            </div>
+        </footer>
+
+        <!-- JavaScript for Tab Functionality -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const openTradesTab = document.getElementById('openTradesTab');
+                const closedTradesTab = document.getElementById('closedTradesTab');
+                const openTradesContent = document.getElementById('openTradesContent');
+                const closedTradesContent = document.getElementById('closedTradesContent');
+
+                openTradesTab.addEventListener('click', function () {
+                    openTradesContent.classList.remove('hidden');
+                    closedTradesContent.classList.add('hidden');
+                    openTradesTab.classList.add('font-semibold', 'text-[#57B6AD]', 'border-b-2', 'border-[#57B6AD]');
+                    closedTradesTab.classList.remove('font-semibold', 'text-[#57B6AD]', 'border-b-2', 'border-[#57B6AD]');
+                    closedTradesTab.classList.add('text-gray-600', 'hover:text-[#57B6AD]');
+                });
+
+                closedTradesTab.addEventListener('click', function () {
+                    openTradesContent.classList.add('hidden');
+                    closedTradesContent.classList.remove('hidden');
+                    closedTradesTab.classList.add('font-semibold', 'text-[#57B6AD]', 'border-b-2', 'border-[#57B6AD]');
+                    openTradesTab.classList.remove('font-semibold', 'text-[#57B6AD]', 'border-b-2', 'border-[#57B6AD]');
+                    openTradesTab.classList.add('text-gray-600', 'hover:text-[#57B6AD]');
+                });
+
+                // Default to show Open Trades Tab
+                openTradesTab.click();
+            });
+        </script>
+</body>
+
+
+</html>
